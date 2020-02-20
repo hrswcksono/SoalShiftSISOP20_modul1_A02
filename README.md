@@ -17,6 +17,7 @@ Pada suatu siang, laptop Randolf dan Afairuzr dibajak oleh seseorang dan kehilan
 (d) jangan lupa untuk membuat dekripsinya supaya nama file bisa kembali.
 
 Jawab :
+
 #!/bin/bash
 
 ```bash
