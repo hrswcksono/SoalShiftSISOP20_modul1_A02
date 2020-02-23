@@ -1,3 +1,9 @@
+Kelompok A02
+
+Muhamad Haris Wicaksono   (05111840000029)
+
+Muhammad Rivadhli Purnomo (05111840000128)
+
 ## SoalShiftSISOP20_modul1_A02
 
 
