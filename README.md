@@ -47,17 +47,17 @@ output=$(echo $input | sed 's/[^a-zA-Z]//g')
 cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$output".txt
 ```
 
-```bash
+```javascript
 touch a.sh
 ```
 membuat file a.sh yang waktu pembuatannya sama dengan file password acak agar pada saat melakukan perubahan nama yang dipengaruhi waktu dan waktunya tidak berubah
 
-```bash
+```javascript
 output=$(echo $input | sed 's/[^a-zA-Z]//g')
 ```
 memfilter masuknya karakter selain a-z dan A-Z tidak bisa
 
-```bash
+```javascript
 cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$output".txt
 ```
 menggenerate character random dan disimpan pada file
