@@ -31,7 +31,7 @@ Pada suatu siang, laptop Randolf dan Afairuzr dibajak oleh seseorang dan kehilan
 
 Jawab :
 
-- soal2.sh
+**- soal2.sh
 
 ```javascript
 #!/bin/bash
@@ -62,7 +62,7 @@ cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$output".txt
 ```
 menggenerate character random dan disimpan pada file
 
-- soal2_wadaw.sh
+**- soal2_wadaw.sh
 ```javascript
 #!/bin/bash
 
