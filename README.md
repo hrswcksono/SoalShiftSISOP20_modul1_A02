@@ -33,7 +33,7 @@ Jawab :
 
 soal2.sh
 
-```
+```javascript
 #!/bin/bash
 
 read input
