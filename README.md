@@ -7,7 +7,7 @@ Muhammad Rivadhli Purnomo (05111840000128)
 ## SoalShiftSISOP20_modul1_A02
 
 
-Soal 1
+**Soal 1**
 
 Whits adalah seorang mahasiswa teknik informatika. Dia mendapatkan tugas praktikum untuk membuat laporan berdasarkan data yang ada pada file “ Sample-Superstore.csv” . Namun dia tidak dapat menyelesaikan tugas tersebut. Laporan yang diminta berupa :
 
@@ -17,7 +17,7 @@ b. Tampilkan 2 negara bagian (state) yang memiliki keuntungan (profit) paling se
 
 c. Tampilkan 10 produk (product name) yang memiliki keuntungan (profit) paling sedikit berdasarkan 2 negara bagian (state) hasil poin b
 
-Soal 2 
+**Soal 2**
 
 Pada suatu siang, laptop Randolf dan Afairuzr dibajak oleh seseorang dan kehilangan data-data penting. Untuk mencegah kejadian yang sama terulang kembali mereka meminta bantuan kepada Whits karena dia adalah seorang yang punya banyak ide. Whits memikirkan sebuah ide namun dia meminta bantuan kalian kembali agar ide tersebut cepat diselesaikan. Idenya adalah kalian 
 
