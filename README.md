@@ -24,49 +24,18 @@ Pada suatu siang, laptop Randolf dan Afairuzr dibajak oleh seseorang dan kehilan
 
 Jawab :
 
+soal2.sh
+
+```bash
 #!/bin/bash
 
-```bash
-for input in $@;do
-```
-digunakan agar bisa langsung input saat perintah bash
+read input
 
-```bash
-string1="${input%.*}"
-```
-menghilangkan string setelah tanda titik terakhir
+touch a.sh
 
-```bash
-output=$(echo $string1 | sed 's/[^a-zA-Z]//g')
-```
-sed = memfilter string yang masuk
-
-```bash
 tgl=$(date +%H)
+
+output=$(echo $input | sed 's/[^a-zA-Z]//g')
+
+cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$output".txt
 ```
-mgetahui sekarang jam berapa
-
-```bash
-dcrpt=$(($tgl*(-1)+26))
-```
-fungsi untuk mengebalikan deskripsi
-
-```bash
-dual=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-mono=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
-```
-character yang digunakan untuk shift
-
-```bash
-newphrase=$(echo $output | tr "${dual:0:26}" "${dual:${tgl}:26}" | tr "${mono:0:26}" "${mono:${tgl}:26}") 
-#newphrase=$(echo $output | tr "${dual:0:26}" "${dual:${dcrpt}:26}" | tr "${mono:0:26}" "${mono:${dcrpt}:26}") 
-```
-tr = digunakan untuk melakukan shift pada langkah berapa kali
-
-```bash
-cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$newphrase".txt
-```
-membuat angka random
-
-done
-
