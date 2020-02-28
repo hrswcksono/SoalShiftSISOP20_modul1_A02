@@ -64,11 +64,7 @@ menggenerate character random dan disimpan pada file
 
 **- soal2_wadaw.sh**
 ```javascript
-#!/bin/bash
-
 for input in $@;do
-
-#nama_file="$input"
 
 tgl=$(date -r a.sh +"%H")
 
@@ -82,4 +78,24 @@ newphrase=$(echo $string1 | tr "${dual:0:26}" "${dual:${tgl}:26}" | tr "${mono:0
 mv $string1.txt $newphrase.txt
 
 done
+
+```javascript
+for input in $@;do
 ```
+agar bisa input di samping bash
+
+```javascript
+string1="${input%.*}"
+```
+mengambil character sebelum ada titik
+
+```javascript
+dual=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+tr "${dual:0:26}" "${dual:${tgl}:26}"
+```
+melakukan shift pada character menggunakan tr, akan bernilai karakter itu sendiri jika di shift sebanyak 0 dan 26
+
+```javascript
+mv $string1.txt $newphrase.txt
+```
+ganti nama file
