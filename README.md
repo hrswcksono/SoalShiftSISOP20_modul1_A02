@@ -93,7 +93,7 @@ mengambil character sebelum ada titik
 dual=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
 tr "${dual:0:26}" "${dual:${tgl}:26}"
 ```
-melakukan shift pada character menggunakan tr, akan bernilai karakter itu sendiri jika di shift sebanyak 0 dan 26
+melakukan shift pada character menggunakan tr (tranform and delete)
 
 ```javascript
 mv $string1.txt $newphrase.txt
