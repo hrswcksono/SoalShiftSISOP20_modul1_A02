@@ -2,11 +2,19 @@
 
 read input
 
-touch a.sh
+if [[ $input =~ ^[A-Za-z_]+$ ]]; then
 
-tgl=$(date +%H)
+  touch a.sh
+  flag=1;
+  while [ $flag -gt 0 ]
+  do
+     a=$(cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 3)
+     if [[ "$a" =~ [[:upper:]] && "$a" =~ [[:lower:]] && "$a" =~ [[:digit:]] ]]; then
+      echo "$a" >> "$input".txt
+      flag=0
+     fi 
+  done 
+else
+  echo "salah"
+fi
 
-output=$(echo $input | sed 's/[^a-zA-Z]//g')
-
-
-cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$output".txt
