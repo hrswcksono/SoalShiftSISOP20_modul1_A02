@@ -85,6 +85,11 @@ for input in $@;do
 agar bisa input di samping bash
 
 ```javascript
+tgl=$(date -r a.sh +"%H")
+```
+mengambil nilai jam pada file a.sh supaya tidak berubah waktunya saat melakukan dekripsi
+
+```javascript
 string1="${input%.*}"
 ```
 mengambil character sebelum ada titik
