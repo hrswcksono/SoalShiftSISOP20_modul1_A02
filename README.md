@@ -34,17 +34,26 @@ Jawab :
 **- soal2.sh**
 
 ```javascript
+  
 #!/bin/bash
 
 read input
 
-touch a.sh
+if [[ $input =~ ^[A-Za-z_]+$ ]]; then
 
-tgl=$(date +%H)
-
-output=$(echo $input | sed 's/[^a-zA-Z]//g')
-
-cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$output".txt
+  touch a.sh
+  flag=1;
+  while [ $flag -gt 0 ]
+  do
+     a=$(cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28)
+     if [[ "$a" =~ [[:upper:]] && "$a" =~ [[:lower:]] && "$a" =~ [[:digit:]] ]]; then
+      echo "$a" >> "$input".txt
+      flag=0
+     fi 
+  done 
+else
+  echo "salah"
+fi
 ```
 
 ```javascript
@@ -53,14 +62,14 @@ touch a.sh
 membuat file a.sh yang waktu pembuatannya sama dengan file password acak agar pada saat melakukan perubahan nama yang dipengaruhi waktu dan waktunya tidak berubah
 
 ```javascript
-output=$(echo $input | sed 's/[^a-zA-Z]//g')
+if [[ $input =~ ^[A-Za-z_]+$ ]]
 ```
-memfilter masuknya karakter selain a-z dan A-Z tidak bisa
+cek input harus berupa huruf alphabet
 
 ```javascript
-cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28 > "$output".txt
+$(cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28)
 ```
-menggenerate character random dan disimpan pada file
+menggenerate character random dan disimpan pada file 
 
 **- soal2_coba.sh**
 ```javascript
