@@ -35,4 +35,4 @@ do
 done
 
 
-$(mv wget.log "wget $(date).bak.log")
+mv wget.log "wget $(date).bak.log"
