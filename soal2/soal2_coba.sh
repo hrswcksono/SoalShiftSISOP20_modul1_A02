@@ -4,7 +4,7 @@ for input in $@;do
 
 #nama_file="$input"
 
-tgl=$(date -r a.sh +"%H")
+tgl=$(date -r $input +"%H")
 
 dual=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
 mono=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ

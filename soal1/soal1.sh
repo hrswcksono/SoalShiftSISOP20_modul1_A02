@@ -12,4 +12,4 @@ awk -F '\t' '$13 ~/Central/ {iter[$11]+=$21} END {for(hasil in iter) {print iter
 
 #c
 echo $'\n\nSoal c'
-awk -F'\t' '$13 ~/Central/ {if($11 == "Texas" || $11 == "Illinois")} {iter[$17]+=$21} END {for(hasil in iter) {print iter[hasil]" "hasil}}' Sample-Superstore.tsv | sort -g | head -10
+awk -F'\t' '$13 ~/Central/ {if($11 == "Texas" || $11 == "Illinois") iter[$17]+=$21} END {for(hasil in iter) {print iter[hasil]" "hasil}}' Sample-Superstore.tsv | sort -g | head -10
