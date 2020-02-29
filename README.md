@@ -128,6 +128,11 @@ $(cat /dev/urandom| tr -dc '0-9a-zA-Z'|head -c 28)
 ```
 menggenerate character random dan disimpan pada file 
 
+```javascript
+if [[ "$a" =~ [[:upper:]] && "$a" =~ [[:lower:]] && "$a" =~ [[:digit:]] ]]
+```
+mengecek hasil random harus terdiri dari huruf besar, huruf kecil, dan angka
+
 **- soal2_coba.sh**
 ```javascript
 for input in $@;do
