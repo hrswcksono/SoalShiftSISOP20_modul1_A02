@@ -22,45 +22,45 @@ c. Tampilkan 10 produk (product name) yang memiliki keuntungan (profit) paling s
 
     awk -F'\t' '{ if($13 == "West") a+=$21; else if($13 == "East") b+=$21; else if($13 == "Central") c+=$21; else if($13 == "South") d+=$21;} END {if(a<b && a<c && a<d) print "West"; else if(b<a && b<c && b<d) print "East"; else if(c<a && c<b && c<d) print "Central"; else if(d<a && d<b && d<c) print "South"}' Sample-Superstore.tsv
 
-awk -F'\t' 
+```awk -F'\t' ```
 untuk menghilangkan fungsi tab pada datanya.
 
-if($13 == "West") a+=$21; else if($13 == "East") b+=$21; else if($13 == "Central") c+=$21; else if($13 == "South") d+=$21
+```if($13 == "West") a+=$21; else if($13 == "East") b+=$21; else if($13 == "Central") c+=$21; else if($13 == "South") d+=$21```
 membuat kondisi untuk mengecek daerah mana yangmempunyai profit yang sesuai. 
 
-if(a<b && a<c && a<d) print "West"; else if(b<a && b<c && b<d) print "East"; else if(c<a && c<b && c<d) print "Central"; else if(d<a && d<b && d<c) print "South"
+```if(a<b && a<c && a<d) print "West"; else if(b<a && b<c && b<d) print "East"; else if(c<a && c<b && c<d) print "Central"; else if(d<a && d<b && d<c) print "South"```
 untuk menampilkan bagian mana yang memiliki profit terendah.
 
 'Soal b'
 
     awk -F '\t' '$13 ~/Central/ {iter[$11]+=$21} END {for(hasil in iter) {print iter[hasil]" "hasil}}' Sample-Superstore.tsv | sort -g | head -2
 
-awk -F '\t' 
+```awk -F '\t' ```
 untuk menghilangkan fungsi tab pada datanya.
 
- $13 ~/Central/ {iter[$11]+=$21}
+ ```$13 ~/Central/ {iter[$11]+=$21}```
  menentukan negara yang memilik profit terrendah yang berada di Central.
  
- for(hasil in iter) {print iter[hasil]" "hasil}}
+ ```for(hasil in iter) {print iter[hasil]" "hasil}}```
  fungsi untuk menampilkan profit dan negara dengan profit terrendah.
  
- | sort -g | head -2
+``` | sort -g | head -2```
  melakukan sorting dengan menggunakan bilangan general dan mengambil 2 teratas.
  
 'Soal c'
 
     awk -F'\t' '$13 ~/Central/ {if($11 == "Texas" || $11 == "Illinois") iter[$17]+=$21} END {for(hasil in iter) {print iter[hasil]" "hasil}}' Sample-Superstore.tsv | sort -g | head -10
     
-awk -F '\t' 
+```awk -F '\t' ```
 untuk menghilangkan fungsi tab pada datanya.
 
-$13 ~/Central/ {if($11 == "Texas" || $11 == "Illinois") iter[$17]+=$21}
+```$13 ~/Central/ {if($11 == "Texas" || $11 == "Illinois") iter[$17]+=$21}```
 menentukan barang dagangan yang memilik profit terrendah yang berada di negara Texas dan Illinois yang berada di Central.
 
-for(hasil in iter) {print iter[hasil]" "hasil}}
+```for(hasil in iter) {print iter[hasil]" "hasil}}```
 fungsi untuk menampilkan profit dan negara dengan profit terrendah.
 
-| sort -g | head -10
+```| sort -g | head -10```
 melakukan sorting dengan menggunakan bilangan general dan mengambil 10 teratas.
 
 **Soal 2**
