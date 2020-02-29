@@ -210,3 +210,118 @@ menjalankan script download gambar tersebut. Namun, script download tersebut han
 [c] Maka dari itu buatlah sebuah script untuk mengidentifikasi gambar yang identik dari keseluruhan gambar yang terdownload tadi. Bila terindikasi sebagai gambar yang identik, maka sisakan 1 gambar dan pindahkan sisa file identik tersebut ke dalam folder ./duplicate dengan format filename "duplicate_nomor" (contoh : duplicate_200, duplicate_201). Setelah itu lakukan pemindahan semua gambar yang tersisa kedalam folder ./kenangan dengan format filename "kenangan_nomor" (contoh: kenangan_252, kenangan_253). Setelah tidak ada gambar di current directory , maka lakukan backup seluruh log menjadi ekstensi ".log.bak" . Hint : Gunakan wget.log untuk membuat location.log yang isinya merupakan hasil dari grep "Location". *Gunakan Bash, Awk dan Crontab
 
 
+```javascript
+#!/bin/bash
+
+i=1
+while (($i<=28))
+do
+	wget "https://loremflickr.com/320/240/cat" -a "wget.log" -O "pdkt_kusuma_$i"
+	i=$((i+1))
+done
+```
+
+```javascript
+wget
+```
+fungsi download pada bash script
+
+```javascript
+-a "wget.log"
+```
+-a menyimpan log download pada file wget.log
+
+```javascript
+-O "pdkt_kusuma_$i"
+```
+-O menyimpan file dengan nama berbeda
+
+
+```javascript
+#!/bin/bash
+
+if [ ! -d duplicate ]; then  
+    mkdir duplicate
+fi
+if [ ! -d kenangan ]; then
+    mkdir kenangan
+fi
+
+grep 'Location' wget.log > location.log
+
+readarray arr < location.log
+
+for ((a=0; a<28; a++));
+do
+#d=0
+e=0
+for ((c=a+1; c<28; c++));
+do
+     #d=$((a+1))
+     e=$((c+1))
+     if [[ "${arr[$a]}" == "${arr[$c]}" ]] 
+     then
+	mv pdkt_kusuma_"$e" duplicate/duplicate_"$e" 
+     fi
+done
+done
+
+for ((c=1; c<29; c++));
+do
+     if [ -f pdkt_kusuma_"$c" ]; then
+  	 mv pdkt_kusuma_"$c" kenangan/kenangan_"$c"
+     fi
+done
+
+mv wget.log "wget $(date).bak.log"
+```
+
+```javascript
+if [ ! -d duplicate ]; then  
+    mkdir duplicate
+fi
+if [ ! -d kenangan ]; then
+    mkdir kenangan
+fi
+```
+mengecek apakah ada direktori, kalau tidak ada maka buat direktori
+
+```javascript
+grep 'Location' wget.log > location.log
+```
+menyimpan baris yang ada tulisannya 'Location' disimpan pada file location.log
+
+```javascript
+readarray arr < location.log
+```
+membaca file location.log sebagai array
+
+```javascript
+for ((a=0; a<28; a++));
+do
+#d=0
+e=0
+for ((c=a+1; c<28; c++));
+do
+     #d=$((a+1))
+     e=$((c+1))
+     if [[ "${arr[$a]}" == "${arr[$c]}" ]] 
+     then
+	mv pdkt_kusuma_"$e" duplicate/duplicate_"$e" 
+     fi
+done
+done
+```
+mengecek berdasarkan log file apakah ada file yang duplikat atau tidak, kalau ada dipindah ke folder 'duplicate' dan ganti nama 'duplicate_n'
+
+```javascript
+for ((c=1; c<29; c++));
+do
+     if [ -f pdkt_kusuma_"$c" ]; then
+  	 mv pdkt_kusuma_"$c" kenangan/kenangan_"$c"
+     fi
+done
+```
+
+mengecek apakah file masih ada atau tidak, jika masih ada dipindah ke folder 'kenangan' dan ganti nama dengan 'kenangan_n'
+
