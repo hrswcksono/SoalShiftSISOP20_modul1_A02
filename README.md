@@ -200,6 +200,8 @@ dcrpt=$(($tgl*(-1)+26))
 ```
 dekripsi dengan melakukan shift sebanyak alphabet dikurangi banyaknya shift sebelumnya
 
+**Soal 3**
+
 1 tahun telah berlalu sejak pencampakan hati Kusuma. Akankah sang pujaan hati kembali ke naungan Kusuma? Memang tiada maaf bagi Elen. Tapi apa daya hati yang sudah hancur, Kusuma masih terguncang akan sikap Elen. Melihat kesedihan Kusuma, kalian mencoba menghibur Kusuma dengan mengirimkan gambar kucing. 
 
 [a] Maka dari itu, kalian mencoba membuat script untuk mendownload 28 gambar dari" https://loremflickr.com/320/240/cat " menggunakan command wget dan menyimpan file dengan nama "pdkt_kusuma_NO" (contoh: pdkt_kusuma_1, pdkt_kusuma_2, pdkt_kusuma_3) serta jangan lupa untuk menyimpan log messages wget kedalam sebuah file "wget.log" . Karena kalian gak suka ribet, kalian membuat penjadwalan untuk
@@ -209,7 +211,7 @@ menjalankan script download gambar tersebut. Namun, script download tersebut han
 
 [c] Maka dari itu buatlah sebuah script untuk mengidentifikasi gambar yang identik dari keseluruhan gambar yang terdownload tadi. Bila terindikasi sebagai gambar yang identik, maka sisakan 1 gambar dan pindahkan sisa file identik tersebut ke dalam folder ./duplicate dengan format filename "duplicate_nomor" (contoh : duplicate_200, duplicate_201). Setelah itu lakukan pemindahan semua gambar yang tersisa kedalam folder ./kenangan dengan format filename "kenangan_nomor" (contoh: kenangan_252, kenangan_253). Setelah tidak ada gambar di current directory , maka lakukan backup seluruh log menjadi ekstensi ".log.bak" . Hint : Gunakan wget.log untuk membuat location.log yang isinya merupakan hasil dari grep "Location". *Gunakan Bash, Awk dan Crontab
 
-
+**- soal3.sh**
 ```javascript
 #!/bin/bash
 
@@ -236,7 +238,7 @@ fungsi download pada bash script
 ```
 -O menyimpan file dengan nama berbeda
 
-
+**- soal3_dupken.sh**
 ```javascript
 #!/bin/bash
 
