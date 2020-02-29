@@ -17,6 +17,12 @@ b. Tampilkan 2 negara bagian (state) yang memiliki keuntungan (profit) paling se
 
 c. Tampilkan 10 produk (product name) yang memiliki keuntungan (profit) paling sedikit berdasarkan 2 negara bagian (state) hasil poin b
 
+
+echo 'Soal a'
+awk -F'\t' '{ if($13 == "West") a+=$21; else if($13 == "East") b+=$21; else if($13 == "Central") c+=$21; else if($13 == "South") d+=$21;} END {if(a<b && a<c && a<d) print "West"; else if(b<a && b<c && b<d) print "East"; else if(c<a && c<b && c<d) print "Central"; else if(d<a && d<b && d<c) print "South"}' Sample-Superstore.tsv
+
+
+
 **Soal 2**
 
 Pada suatu siang, laptop Randolf dan Afairuzr dibajak oleh seseorang dan kehilangan data-data penting. Untuk mencegah kejadian yang sama terulang kembali mereka meminta bantuan kepada Whits karena dia adalah seorang yang punya banyak ide. Whits memikirkan sebuah ide namun dia meminta bantuan kalian kembali agar ide tersebut cepat diselesaikan. Idenya adalah kalian 
