@@ -2,8 +2,6 @@
 
 for input in $@;do
 
-nama_file="$input"
-
 tgl=$(date -r a.sh +"%H")
 
 dcrpt=$(($tgl*(-1)+26))
